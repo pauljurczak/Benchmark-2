@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <ctime>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
