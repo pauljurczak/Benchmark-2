@@ -7,18 +7,15 @@
 using namespace std;
 
 
-int f(int N = 999) {  
+int f(int N = 999) {   
   int nMax = 0;
 
   for (int i = 1; i <= N; ++i)
     for (int j = i; j <= N; ++j) {
-      string digits  = to_string(i*j);
-      string rDigits = digits;
+      string s = to_string(i*j);
 
-      reverse(rDigits.begin(), rDigits.end());
-
-      if (digits == rDigits)
-        nMax = max(i*j, nMax);
+      if (s == string(s.rbegin(), s.rend()))
+        nMax = max(i*j, nMax);  
     }
 
   return nMax;
@@ -29,15 +26,17 @@ int main()
 {
   const int N = 10;
 
-  auto t0 = clock();
-  int  r  = 0;
+  int    result  = 0;
+  double timeMin = DBL_MAX;
 
-  for (int i = 0; i < N; ++i)
-    r += f();
+  for (int i = 0; i < N; ++i) {
+    auto t0 = clock();
+    result += f();
+    auto t1 = clock();
+    timeMin = min(timeMin, (double)(t1-t0)/CLOCKS_PER_SEC);
+  }
 
-  auto t1 = clock();
-
-  cout << "CPU Time: " << fixed << setprecision(3) << (double)(t1-t0)/N/CLOCKS_PER_SEC << "s" << endl;
+  cout << "CPU Time: " << fixed << setprecision(3) << timeMin << "s" << endl;
   cout << "Result: " << r/N << endl << endl;
 
   return 0;
