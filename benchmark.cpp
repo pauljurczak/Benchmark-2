@@ -1,8 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <ctime>
+#include <cfloat>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -37,7 +37,7 @@ int main()
   }
 
   cout << "CPU Time: " << fixed << setprecision(3) << timeMin << "s" << endl;
-  cout << "Result: " << r/N << endl << endl;
+  cout << "Result: " << result/N << endl << endl;
 
   return 0;
 }
