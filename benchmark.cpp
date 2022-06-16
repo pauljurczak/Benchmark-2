@@ -36,7 +36,7 @@ int main()
     timeMin = min(timeMin, (double)(t1-t0)/CLOCKS_PER_SEC);
   }
 
-  cout << "CPU Time: " << fixed << setprecision(3) << timeMin << "s" << endl;
+  cout << "CPU Time: " << fixed << setprecision(3) << timeMin << "s " << endl;
   cout << "Result: " << result/N << endl << endl;
 
   return 0;
